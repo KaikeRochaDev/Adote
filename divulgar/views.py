@@ -44,3 +44,8 @@ def novo_pet(request):
         pet.save()
         return HttpResponse('teste')
 
+@login_required
+def seus_pets(request):
+    if request.method == 'GET':
+        pets = Pet.objects.filter(usuario=request.user)
+        return render(request, 'seus_pets.html', {'pets': pets})
