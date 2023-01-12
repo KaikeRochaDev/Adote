@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'usuarios.apps.UsuariosConfig',
     'divulgar.apps.DivulgarConfig',
+    'adotar.apps.AdotarConfig',
 ]
 
 MIDDLEWARE = [
