@@ -30,3 +30,15 @@
     
 
 }
+
+.navegação{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.navegação:hover{
+    color: #A24D52;
+}

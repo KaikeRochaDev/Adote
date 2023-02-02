@@ -16,9 +16,15 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-2 bg-side-plataforma sidebar">
+                <div style='height: 713px;' class="col-md-2 bg-side-plataforma sidebar">
                     <h2>ADO.TE</h2>
                     <hr>
+                    <h5><a class="navegação" href="/adotar/">Adotar pet</a><h5/><br>
+                        <h5><a class="navegação" href="/divulgar/novo_pet/">Divulgar Pet</a><h5/><br>
+                        <h5><a class="navegação" href="/divulgar/seus_pets/">Seus pets</a><h5/><br>
+                        <h5><a class="navegação" href="/divulgar/ver_pedido_adocao/">Solicitação de Pet</a><h5/><br>
+                        <h5><a class="navegação" href="/divulgar/dashboard/">Dashboard</a><h5/><br>
+                        <h5><a class="navegação" href="/auth/sair/">Sair</a><h5/>
                   
                     
                 </div>
@@ -33,6 +39,13 @@
                                 </div>
                             {% endfor %}
                         {% endif %}
+
+                        {% if not pedido %}
+                            <div style='margin-left: 150px; width: 920px;' class='box'>
+                                <h1 class='alert' style='color: #A24D52;display: flex; justify-content: center;'>Você não possui solicitações no momento! 🙁</h1>
+                            </div>
+                        {% endif %}
+                        
                         {% for pedido in pedidos %}
                             <div class="col-md-3" style="margin-top: 20px;">
                                 <div class="card" style="background-color: #D6D6D6; border:none;">

@@ -34,7 +34,7 @@ def cadastro(request):
             )
             messages.add_message(request, constants.SUCCESS, 'Usuário criado com sucesso!')
             #   mensagem de sucesso
-            return render(request, 'cadastro.html')
+            return redirect('/auth/login/')
         except:
             messages.add_message(request, constants.ERROR, 'Erro interno no sistema')
             # mensagem de erro
