@@ -40,32 +40,32 @@
                             {% endfor %}
                         {% endif %}
 
-                        {% if not pedido %}
+                        {% if not pedidos %}
                             <div style='margin-left: 150px; width: 920px;' class='box'>
                                 <h1 class='alert' style='color: #A24D52;display: flex; justify-content: center;'>Você não possui solicitações no momento! 🙁</h1>
                             </div>
-                        {% endif %}
-                        
-                        {% for pedido in pedidos %}
-                            <div class="col-md-3" style="margin-top: 20px;">
-                                <div class="card" style="background-color: #D6D6D6; border:none;">
-                                    <div style="padding:10px">
-                                        <span clas="span-bold">{{pedido.pet.nome}}</span>
-                                    </div>
-                                    <img class="card-img-top" src="{{pedido.pet.foto.url}}">
-                                    <div class="card-body">
-                                        <h1 class="card-title">{{pedido.usuario.username}}</h1>
-                                        <span class="span-bold2">Telefone:</span>
-                                        <p>{{pedido.pet.telefone}}</p>
-                                        
-                                        <span class="span-bold2">Cidade:</span>
-                                        <p>{{pedido.pet.cidade}}</p>
-                                        <a href="{%url 'processa_pedido_adocao' pedido.id%}?status=A" class="btn btn-success btn-lg">Aprovar</a>
-                                        <a href="{%url 'processa_pedido_adocao' pedido.id%}?status=R" class="btn btn-danger btn-lg">Recusar</a>
+                        {% else %}
+                            {% for pedido in pedidos %}
+                                <div class="col-md-3" style="margin-top: 20px;">
+                                    <div class="card" style="background-color: #D6D6D6; border:none;">
+                                        <div style="padding:10px">
+                                            <span clas="span-bold">{{pedido.pet.nome}}</span>
+                                        </div>
+                                        <img class="card-img-top" src="{{pedido.pet.foto.url}}">
+                                        <div class="card-body">
+                                            <h1 class="card-title">{{pedido.usuario.username}}</h1>
+                                            <span class="span-bold2">Telefone:</span>
+                                            <p>{{pedido.pet.telefone}}</p>
+                                            
+                                            <span class="span-bold2">Cidade:</span>
+                                            <p>{{pedido.pet.cidade}}</p>
+                                            <a href="{%url 'processa_pedido_adocao' pedido.id%}?status=A" class="btn btn-success btn-lg">Aprovar</a>
+                                            <a href="{%url 'processa_pedido_adocao' pedido.id%}?status=R" class="btn btn-danger btn-lg">Recusar</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
+                        {% endif %}
 
                         
 
