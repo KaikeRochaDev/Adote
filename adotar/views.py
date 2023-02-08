@@ -49,18 +49,33 @@ def pedido_adocao(request, id_pet):
 def processa_pedido_adocao(request, id_pedido):
     status = request.GET.get('status')
     pedido = PedidoAdocao.objects.get(id=id_pedido)
+    pet = Pet.objects.get(id=pedido.pet.id)
 
-    if status == 'A':
+    if status == "A":
         pedido.status = 'AP'
-        string = '''Olá, sua adoção foi aprovada com sucesso...'''
-
-    elif status == 'R':
+        pet.status = 'A'
+        string = '''Olá, sua adoção foi aprovada. ...'''
+    elif status == "R":
+        string = '''Olá, sua adoção foi recusada. ...'''
         pedido.status = 'R'
-        string = '''Olá, a sua adoção foi recusada...'''
 
     pedido.save()
+    if status == "A":
+        pet.status = 'A'
+        pet.save()
 
-    #TODO: alterar status do pet. Por hora só mudamos no pedido_adocao
+        solicitacoes = PedidoAdocao.objects.filter(pet_id=pet.id).exclude(usuario_id=pedido.usuario.id)
+        if solicitacoes:
+            for solicitacao in solicitacoes:
+                solicitacao.status='R'
+                solicitacao.save()
+                send_mail(
+                    'Sua adoção foi processada',
+                    '''Adoção do pet concedida a outro, levando em considereção diversos motivos, 
+                    entre eles a data/hora da solicitação.''',
+                    request.user.email,
+                    [solicitacao.usuario.email,]
+                )
 
     email = send_mail(
         'Sua adoção foi processada',
