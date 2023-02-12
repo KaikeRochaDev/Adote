@@ -36,7 +36,7 @@ def pedido_adocao(request, id_pet):
     if not pet.exists():
         messages.add_message(request, constants.WARNING, 'Esse pet já foi adotado')
         return redirect('/adotar')
-
+    
     pedido = PedidoAdocao(pet=pet.first(),
                           usuario=request.user,
                           data=datetime.now())
@@ -80,7 +80,7 @@ def processa_pedido_adocao(request, id_pedido):
     email = send_mail(
         'Sua adoção foi processada',
         string,
-        'kaike@gmail.com',
+        'kaikerochadev@gmail.com',
         [pedido.usuario.email,]
     )
 
