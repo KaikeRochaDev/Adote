@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div align="center" id="top"> 
   <img src="./.github/app.gif" alt="Adote" />
 
@@ -96,3 +97,6 @@ Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" targe
 &#xa0;
 
 <a href="#top">Back to top</a>
+=======
+# Adote
+>>>>>>> 64da58c6ddb0d9eca2b58730ba5dd1b987a6b0dd
