@@ -1,0 +1,24 @@
+.width80{
+    width: 80vw; 
+ }
+ 
+ .tabela{
+     width: 100%;
+     margin-top: 20px;
+ }
+ 
+ .tabela-linha{
+     background-color: #e8e7e7;
+ }
+
+ .navegação{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.navegação:hover{
+    color: #A24D52;
+}
