@@ -3,7 +3,7 @@
 
   &#xa0;
 
-  <a href="https://adote-krd.onrender.com">Demonstração do projeto</a>
+  <a target="_blank" href="https://adote-krd.onrender.com">Demonstração do projeto</a>
 </div>
 
 <h1 align="center">Adote</h1>
